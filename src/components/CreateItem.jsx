@@ -1,14 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const CreateItem = () => {
-  const [title, setShowTitle] = useState("");
+  const [title, setShowTitle] = useState("Sample title");
   const [date, setDate] = useState("2024-01-01");
   const [time, setTime] = useState("00:00");
   const [frequency, setFrequency] = useState(1);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("Hello!");
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log({
+      title: title,
+      date: date,
+      time: time,
+      frequency: frequency,
+      message: message,
+    });
+    navigate("/calendar");
   };
 
   return (
@@ -16,7 +26,7 @@ const CreateItem = () => {
       onSubmit={onSubmit}
       className="flex flex-col justify-between p-4 leading-normal border rounded-lg border-gray-200 shadow-2xl w-4/5 "
     >
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 py-5">
         New Sheduler
       </h5>
 

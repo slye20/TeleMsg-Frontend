@@ -1,4 +1,5 @@
-import Home from "./pages/home";
+import Home from "./pages/Home";
+import Calendar from "./pages/Calendar";
 
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -14,6 +15,22 @@ const App = () => {
             element={
               <>
                 <Home />
+              </>
+            }
+          />
+          <Route
+            path="/create/:date"
+            element={
+              <>
+                <Calendar />
+              </>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <>
+                <Calendar />
               </>
             }
           />
