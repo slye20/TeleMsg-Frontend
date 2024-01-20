@@ -19,10 +19,10 @@ const App = () => {
             }
           />
           <Route
-            path="/create/:date"
+            path="/create/:initialDate"
             element={
               <>
-                <Calendar />
+                <Home />
               </>
             }
           />

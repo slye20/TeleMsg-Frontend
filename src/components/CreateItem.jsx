@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const CreateItem = () => {
+  const { initialDate } = useParams();
   const [title, setShowTitle] = useState("Sample title");
-  const [date, setDate] = useState("2024-01-01");
+  const [date, setDate] = useState(initialDate ? initialDate : "2024-01-01");
   const [time, setTime] = useState("00:00");
   const [frequency, setFrequency] = useState(1);
   const [message, setMessage] = useState("Hello!");
@@ -31,9 +32,7 @@ const CreateItem = () => {
       </h5>
 
       {/* Title */}
-      <label for="title" className="block mt-2 text-sm font-medium ">
-        Title
-      </label>
+      <label className="block mt-2 text-sm font-medium ">Title</label>
       <input
         type="text"
         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:bg-white"
@@ -46,9 +45,7 @@ const CreateItem = () => {
       />
 
       {/* Label */}
-      <label for="countries" className="block mt-2 text-sm font-medium  ">
-        Time
-      </label>
+      <label className="block mt-2 text-sm font-medium  ">Time</label>
 
       <div className="flex flex-row">
         {/* Date */}
@@ -81,9 +78,7 @@ const CreateItem = () => {
           value={frequency}
           onChange={(x) => setFrequency(x.target.value)}
         >
-          <option selected value="1">
-            Doesn't Repeat
-          </option>
+          <option value="1">Doesn't Repeat</option>
           <option value="2">Daily</option>
           <option value="3">Weekly</option>
           <option value="4">Monthly</option>
@@ -92,9 +87,7 @@ const CreateItem = () => {
       </div>
 
       {/* Message */}
-      <label for="message" className="block mt-2 text-sm font-medium">
-        Message
-      </label>
+      <label className="block mt-2 text-sm font-medium">Message</label>
       <textarea
         id="message"
         rows="4"
